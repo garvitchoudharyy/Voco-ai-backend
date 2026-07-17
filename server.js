@@ -43,13 +43,8 @@ const allowedOrigins = (process.env.ALLOWED_ORIGINS || '')
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: true, // TEMP: allow all origins while debugging. Tighten this
+    // back to the allowedOrigins whitelist once checkout is confirmed working.
   })
 );
 
@@ -206,3 +201,4 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Voco AI backend running on http://localhost:${PORT}`);
 });
+
