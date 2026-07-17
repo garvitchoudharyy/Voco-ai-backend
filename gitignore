@@ -1,0 +1,8 @@
+# Never commit real secrets to GitHub
+.env
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
